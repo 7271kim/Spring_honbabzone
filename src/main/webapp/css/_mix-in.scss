@@ -1,0 +1,36 @@
+$screen-xsm: 320px;
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-lg: 1280px;
+$screen-xlg: 1440px;
+
+@mixin vw-font-size-mo($mo-pixel) {
+    font-size: $mo-pixel*1px;
+    @media (max-width:760px) {
+        font-size: $mo-pixel*100/760*1vw;
+    }
+}   
+
+@mixin vw-width-size-mo($mo-pixel) {
+    width: $mo-pixel*1px;
+    @media (max-width:760px) {
+        width : $mo-pixel*100/760*1vw;
+    }
+}
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media screen and(min-width: $screen-lg)  {
+      @content;
+    }
+  }
+  @else if $point == tablet {
+    @media screen and(max-width: $screen-lg - 1) {
+      @content;
+    }
+  }
+  @else if $point == mobile {
+    @media screen and(max-width: $screen-sm) {
+      @content;
+    }
+  }
+}

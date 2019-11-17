@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+    <!-- 와.....$로하니까 ''이거 없어짐 굳.... -->
+    <!-- WHERE 1 = 1 기법 , parameterType="membean" resultType="membean" 은 mybatis 설정에 alias="membean" 세팅 해놔서 가능! -->
+    <!-- 폰 번호는 복호화 가능한 키로 할 것임 -->
+    <select id="getMemList" parameterType="membean" resultType="membean" >
+        SELECT ID, PW, NAME, EMAIL, ADDRESS, GENDER, AES_DECRYPT(UNHEX(HPNUMBER),SHA2('phoneEn',256)) HPNUMBER, iSACTIVITY,
+               EMAILTOKEN, LOGINCOUNT, TOTALLOGINCOUNT, AUTHORIZATION,
+               DATE_FORMAT(JOINDATE,'%Y-%m-%d') AS JOINDATE,
+               DATE_FORMAT(JOINUPDATE,'%Y-%m-%d') AS JOINUPDATE,
+               DATE_FORMAT(LASTLOGIN,'%Y-%m-%d') AS LASTLOGIN,
+               DATE_FORMAT(CANCELLOGIN,'%Y-%m-%d') AS CANCELLOGIN,
+               DATE_FORMAT(OUTDATE,'%Y-%m-%d') AS OUTDATE,
+               DATE_FORMAT(EMAILTOKENDATE,'%Y-%m-%dT%H:%i:%S') AS EMAILTOKENDATE
+        FROM tomcat_hohbabzone_mem
+        WHERE 1 = 1
+        <if test="where != null and where != ''">
+            <foreach collection="where" item="value" index="key">
+                AND ${key}=#{value} 
+            </foreach>
+        </if>
+        <if test="whereNot != null and whereNot != ''">
+            <foreach collection="whereNot" item="value" index="key">
+                AND ${key}!=#{value} 
+            </foreach>
+        </if>
+        <if test="like != null and like != ''">
+            <foreach collection="like" item="value" index="key">
+                AND ${key} LIKE CONCAT('%',#{value},'%')
+            </foreach>
+        </if>
+        ORDER BY JOINUPDATE DESC
+        <if test="like != null and like != ''">
+            AND
+            <foreach collection="like" item="value" index="key" separator="OR">
+                ${key} LIKE CONCAT('%',#{value},'%')
+            </foreach>
+        </if>
+    </select>
+    
+    <!-- Insert 성공시 기본 return- 1 (여러개일경우도 1) , Update - Update된 행의 개수 반환 (없다면 0), delete - Delete된 행의개수 (없다면 0) -->
+    <!-- 방금 Insert한 결과를 바로 가지고 가고 싶은 경우! selectKey를 사용! keyProperty="가지고 가고자 하는 원하는 컬럼명" -->
+    <!-- 방금 Insert한 결과가 membean에 담겨서 돌아간다. -> DAO에서 받을 수 있음! -->
+    <!-- 폰 번호는 복호화 가능한 키로 할 것임 -->
+
+    <insert id="memInsert" parameterType="membean">
+    INSERT INTO tomcat_hohbabzone_mem
+            (ID,PW,NAME, EMAIL,ADDRESS,GENDER,HPNUMBER,JOINDATE,JOINUPDATE,EMAILTOKENDATE,EMAILTOKEN,LASTLOGIN,CANCELLOGIN,OUTDATE) 
+    VALUES ( #{id},#{pw},#{name},#{email},#{address},#{gender},HEX(AES_ENCRYPT(#{hpnumber},SHA2('phoneEn',256))), now(), now(), now(),#{emailToken}, now(),now(),now());
+        <selectKey resultType="int" keyProperty="seq" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    
+    <!-- 업데이트는 항상 조심! 잘못할 경우 전체 업데이트가 되버리는 불상사가 발생 0도 = '' 이거로 인식함 -->
+    <update id="memUpdate" parameterType="membean">
+        UPDATE tomcat_hohbabzone_mem
+            <trim prefix="SET" suffixOverrides=",">
+               <if test="pw != null and pw != ''">PW=#{pw},</if>
+               <if test="name != null and name != ''">NAME=#{name},</if>
+               <if test="email != null and email != ''">EMAIL=#{email},</if>
+               <if test="address != null and address != ''">ADDRESS=#{address},</if>
+               <if test="gender != null and gender != ''">GENDER=#{gender},</if>
+               <if test="hpnumber != null and hpnumber != ''">HPNUMBER=HEX(AES_ENCRYPT(#{hpnumber},SHA2('phoneEn',256))),</if>
+               <if test="joinDate != null and joinDate != ''">JOINDATE=#{joinDate},</if>
+               <if test="joinUpDate != null and joinUpDate != ''">JOINUPDATE=#{joinUpDate},</if>
+               <if test="emailTokenDate != null and emailTokenDate != ''">EMAILTOKENDATE=#{emailTokenDate},</if>
+               <if test="emailToken != null and emailToken != ''">EMAILTOKEN=#{emailToken},</if>
+               <if test="lastLogin != null and lastLogin != ''">LASTLOGIN=#{lastLogin},</if>
+               <if test="cancelLogin != null and cancelLogin != ''">CANCELLOGIN=#{lastLogin},</if>
+               <if test="outDate != null and outDate != ''">OUTDATE=#{outDate},</if>
+               <if test="isActivity != null and isActivity != ''">ISACTIVITY=#{isActivity},</if>
+               <if test="loginCount != null">LOGINCOUNT=#{loginCount},</if>
+               <if test="totalLoginCount != null and totalLoginCount != ''">TOTALLOGINCOUNT=#{totalLoginCount},</if>
+               <if test="authorization != null and authorization != ''">AUTHORIZATION=#{authorization},</if>
+            </trim>
+        WHERE 1 = 1
+                <if test="where != null and where != ''">
+                    <foreach collection="where" item="value" index="key">
+                        AND ${key}=#{value} 
+                    </foreach>
+                </if>
+                <if test="whereNot != null and whereNot != ''">
+                    <foreach collection="whereNot" item="value" index="key">
+                     AND ${key}!=#{value} 
+                     </foreach>
+                </if>
+                <if test="like != null and like != ''">
+                    <foreach collection="like" item="value" index="key">
+                        AND ${key} LIKE CONCAT('%',#{value},'%')
+                    </foreach>
+                </if>
+                
+        <selectKey resultType="int" keyProperty="seq" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </update>
+</mapper>
+

@@ -1,0 +1,66 @@
+.container-main .divide-three {
+  width: 33.33%;
+  position: relative;
+  float: left;
+}
+
+.container-main .divide-three .video-wrap {
+  margin-top: 10px;
+}
+
+.container-main .divide-three .video-wrap .youtube-video {
+  width: 49%;
+}
+
+.container-main .divide-three .img-wrap {
+  margin-top: 10px;
+}
+
+.container-main .divide-three .img-wrap a img {
+  width: 49%;
+}
+
+.container-main .divide-three ul li {
+  overflow: hidden;
+  margin: 0 15px;
+  border-top: 1px solid #f2f2f2;
+}
+
+.container-main .divide-three ul li a {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  padding: 10px 15px 11px;
+  margin: 0 -15px;
+  letter-spacing: -1px;
+  line-height: 1.267em;
+}
+
+.container-main .divide-three ul li:first-child {
+  border-top: 0;
+}
+
+.container-main .divide-three:nth-child(1):after, .container-main .divide-three:nth-child(2):after {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  background: #efefef;
+  content: '';
+}
+
+@media screen and (max-width: 768px) {
+  .container-main .divide-three {
+    width: 100%;
+  }
+  .container-main .divide-three .video-wrap .youtube-video {
+    width: 100%;
+  }
+  .container-main .divide-three .video-wrap .youtube-video:nth-of-type(3), .container-main .divide-three .video-wrap .youtube-video:nth-of-type(4) {
+    display: none;
+  }
+}

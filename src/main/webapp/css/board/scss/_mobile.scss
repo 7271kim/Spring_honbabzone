@@ -1,0 +1,11 @@
+@include breakpoint(mobile) {
+    .container-sisim{
+        .board-wrap{
+           li{
+               .detail-area{
+                    max-width: 50%;
+               }
+           }
+        }
+    }
+}

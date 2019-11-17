@@ -1,0 +1,15 @@
+@include breakpoint(mobile) {
+    .container-main{
+        .divide-three{
+            width:100%;
+            .video-wrap{
+                .youtube-video{
+                    width:100%;
+                }
+                .youtube-video:nth-of-type(3),.youtube-video:nth-of-type(4){
+                    display:none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "honbabzone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.3.1",
+    "file": "^0.2.2",
+    "flexibility": "^2.0.1",
+    "gulf": "^5.0.3",
+    "gulp": "3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-if": "^2.0.2",
+    "gulp-livereload": "^4.0.1",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-strip-debug": "^3.0.0",
+    "gulp-uglify": "^3.0.1",
+    "gulp-webserver": "^0.9.1",
+    "node-bourbon": "^4.2.8",
+    "postcss": "^7.0.5",
+    "postcss-flexibility": "^2.0.0"
+  }
+}

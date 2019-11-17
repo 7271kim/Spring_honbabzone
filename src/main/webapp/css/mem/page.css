@@ -1,0 +1,228 @@
+/* component-name */
+.contents-container .logo-label {
+  font-size: 100px;
+  font-weight: bold;
+  display: inline;
+  cursor: pointer;
+}
+
+.contents-container .join-title label {
+  cursor: pointer;
+}
+
+.contents-container .input_row {
+  position: relative;
+  background: #fff;
+  margin: 10px;
+}
+
+.contents-container .input_row .init, .contents-container .input_row .sel {
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  line-height: 50px;
+  height: 50px;
+  border: solid 1px #dadada;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.contents-container .input_row .input_box .j-button {
+  width: 100%;
+  margin: 2px;
+  background-color: #1fbc02;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.contents-container .input_row .input_box .j-button.ratio-50 {
+  width: 49.3%;
+  float: left;
+  margin: 1px;
+}
+
+.contents-container .contents-login {
+  width: 320px;
+  margin: 250px auto;
+}
+
+.contents-container .contents-join {
+  width: 400px;
+  margin: 50px auto;
+}
+
+.contents-container .contents-join .input_row#chek_area, .contents-container .contents-join .input_row#marketing_area {
+  text-align: left;
+  font-weight: bold;
+}
+
+.contents-container .contents-join .input_row#chek_area input, .contents-container .contents-join .input_row#marketing_area input {
+  position: absolute;
+  opacity: 0;
+}
+
+.contents-container .contents-join .input_row#chek_area label, .contents-container .contents-join .input_row#marketing_area label {
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.contents-container .contents-join .input_row#chek_area label .check-btn, .contents-container .contents-join .input_row#marketing_area label .check-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.contents-container .contents-join .input_row#chek_area label .check-btn:after, .contents-container .contents-join .input_row#marketing_area label .check-btn:after {
+  display: none;
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 7px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.contents-container .contents-join .input_row#chek_area label .check-btn.focus, .contents-container .contents-join .input_row#marketing_area label .check-btn.focus {
+  background-color: yellow;
+  border: 2px solid #2196F3;
+}
+
+.contents-container .contents-join .input_row#chek_area label input:checked ~ .check-btn, .contents-container .contents-join .input_row#marketing_area label input:checked ~ .check-btn {
+  background-color: #2196F3;
+}
+
+.contents-container .contents-join .input_row#chek_area label input:checked ~ .check-btn:after, .contents-container .contents-join .input_row#marketing_area label input:checked ~ .check-btn:after {
+  display: block;
+}
+
+.contents-container .contents-join .input_row#adress_area input[type="button"] {
+  background-color: #f44336;
+  color: white;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 7px;
+}
+
+.contents-container .contents-join .input_row#adress_area span {
+  display: table;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.contents-container .contents-join .input_row#adress_area span label, .contents-container .contents-join .input_row#adress_area span input, .contents-container .contents-join .input_row#adress_area span button {
+  display: table-cell;
+}
+
+.contents-container .contents-join .input_row#adress_area span label {
+  width: 75px;
+  text-align: left;
+  font-weight: bold;
+  color: #8995f3;
+}
+
+.contents-container .contents-join .input_row#adress_area span input {
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+}
+
+.contents-container .contents-join .input_row {
+  margin: 25px;
+}
+
+.contents-container .contents-join .input_row h3 {
+  text-align: left;
+  font-size: 16px;
+}
+
+.contents-container .contents-join .input_row .radio-group {
+  text-align: left;
+}
+
+.contents-container .contents-join .input_row .radio-group label {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 40%;
+  padding-left: 30px;
+}
+
+.contents-container .contents-join .input_row .radio-group label input {
+  position: absolute;
+  opacity: 0;
+}
+
+.contents-container .contents-join .input_row .radio-group label input:checked ~ .radio-btn {
+  background-color: #2196F3;
+}
+
+.contents-container .contents-join .input_row .radio-group label .radio-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.contents-container .contents-join .input_row .radio-group label .radio-btn:after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: white;
+}
+
+.contents-container .contents-join .input_row .sel {
+  margin-bottom: 10px;
+}
+
+.contents-container .contents-join .input_row .phone-wrap {
+  display: table;
+  width: 100%;
+}
+
+.contents-container .contents-join .input_row .phone-wrap .first, .contents-container .contents-join .input_row .phone-wrap .second, .contents-container .contents-join .input_row .phone-wrap .third {
+  display: table-cell;
+  table-layout: fixed;
+  width: 147px;
+  vertical-align: middle;
+}
+
+.contents-container .contents-join .input_row .phone-wrap .first #phone-first {
+  margin: 0;
+  height: 50px;
+}
+
+.contents-container .contents-join .input_row .phone-wrap .second, .contents-container .contents-join .input_row .phone-wrap .third {
+  padding-left: 10px;
+}
+
+.contents-container .contents-join .input_row .j-button {
+  height: 50px;
+  line-height: 50px;
+}
+
+.contents-container .error, .contents-container #err_capslock, .contents-container #err_capslock_ck {
+  display: none;
+}
