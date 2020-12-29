@@ -9,5 +9,4 @@
 .springBeans
 .springWebflow
 
-**/*.properties
 **/mailsender.xml

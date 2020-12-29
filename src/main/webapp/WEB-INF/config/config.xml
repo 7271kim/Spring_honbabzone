@@ -6,7 +6,7 @@
     <!-- 개발서버 관련-->
     <bean id="config" class="com.honbabzone.tomcat.utile.CommonConfigBean">
     <!-- 0 : 운영, 1 : 개발 -->
-        <property name="development" value="0" />
+        <property name="development" value="1" />
         <property name="allowImage" value="gif,jpg,jpeg,png" />
         <property name="allowFile" value="gif,jpg,jpeg,png,zip,hwp,ppt,pptx,xls,xlsx,doc,docx,pdf,svg" />
         <property name="allowFileSize" value="4194304" />
@@ -14,7 +14,7 @@
         <property name="memUrl" value="/mem/" />
         <property name="mainUrl" value="/main/" />
         <property name="simsimUrl" value="/board/simsim/" />
-        <property name="localSimSimSaveFolder" value="D:/simsim/" />
+        <property name="localSimSimSaveFolder" value="C:/simsim/" />
         <property name="remoteSimSimSaveFolder" value="simsim" />
     </bean> 
 

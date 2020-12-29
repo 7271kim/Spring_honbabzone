@@ -16,7 +16,7 @@
     <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
         <param name="encoding" value="UTF-8" />
         <!-- 개발 운용에 따라 로그 위치 수정해줘야 한다. -->
-        <param name="File" value="D:/log/com.honbab.tomcat_log.log" />
+        <param name="File" value="C:/log/com.honbab.tomcat_log.log" />
         
         <!-- 최대 백업 개수 : 1개로 설정되면 이전 1개만 백업된다. -->
         <param name="MaxFileSize" value="1MB" />
@@ -35,7 +35,7 @@
         <param name="encoding" value="UTF-8" />
         <param name="DatePattern" value="'_'yyyyMMdd"/>
         <!-- 개발 운용에 따라 로그 위치 수정해줘야 한다. -->
-        <param name="File" value="D:/log/com.honbab.tomcat_log_day.log" />
+        <param name="File" value="C:/log_spring/com.honbab.tomcat_log_day.log" />
         <param name="Append" value="true"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
@@ -47,7 +47,7 @@
         <param name="Threshold" value="ERROR"/>
         <param name="encoding" value="UTF-8" />
         <!-- 추후 경로 수정해줘야 함. -->
-        <param name="File" value="D:/log/com.honbab.tomcat_log_err.log" />
+        <param name="File" value="C:/log/com.honbab.tomcat_log_err.log" />
         <param name="MaxFileSize" value="1MB" />
         <param name="MaxBackupIndex" value="1" />
         <param name="Append" value="true"/>

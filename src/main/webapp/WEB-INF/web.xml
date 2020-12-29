@@ -28,7 +28,7 @@
     </listener>
     <context-param>
         <param-name>log4jConfigLocation</param-name>
-        <param-value>/WEB-INF/log_setting/log4j_opration.xml</param-value>
+        <param-value>/WEB-INF/log_setting/log4j_dev.xml</param-value>
     </context-param>
     <!-- 
         운영환경시 변경 
